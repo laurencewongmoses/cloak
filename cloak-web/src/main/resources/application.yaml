@@ -1,0 +1,5 @@
+server:
+    port: 9009
+    servlet:
+      context-path: /cloak
+    address: localhost
