@@ -18,11 +18,16 @@ public class BaseHistoryServiceImpl implements BaseHistoryService {
     @Autowired
     private BaseHistoryDao baseHistoryDao;
 
+    /**
+     * 根据代码查询其所有历史数据,当表不存在时返回空数据
+     * @param stockno
+     * @return
+     */
     @Override
     public List<BaseStockHistory> findAll(String stockno) {
         StringBuffer tableName = new StringBuffer(Constant.STOCK_HISTORY_PREX);
         tableName.append(stockno);
-
+        //当表不存在时返回空的链表
         String isTableName = baseHistoryDao.selectTableName(tableName.toString());
         if(isTableName == null)
             return new ArrayList<>();

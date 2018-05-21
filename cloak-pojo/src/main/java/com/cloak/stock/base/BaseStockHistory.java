@@ -2,7 +2,13 @@ package com.cloak.stock.base;
 
 import lombok.Getter;
 import lombok.Setter;
-
+/**
+ * @PackageName: com.cloak.stock.base
+ * @ClassName: BaseStockHistory
+ * @Author: wangpeng
+ * @Description: (这里用一句话描述这个类)
+ * @Date: 2018/5/21 下午8:01
+ */
 public class BaseStockHistory {
     @Getter @Setter public String date;//交易日期
     @Getter @Setter public Double open;//开盘价
