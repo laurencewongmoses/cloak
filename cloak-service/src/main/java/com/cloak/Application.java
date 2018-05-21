@@ -12,8 +12,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * 应用入口
- *
- * @author caoyong
+ * @author wangpeng
  * @since 2018年1月29日 上午11:44:17
  */
 @EnableScheduling
