@@ -1,19 +1,25 @@
 package com.cloak.serivce.stock.impl;
 
 import com.cloak.constants.Constant;
+import com.cloak.serivce.conf.RedisBean;
 import com.cloak.serivce.stock.BaseHistoryService;
 import com.cloak.stock.base.BaseStockHistory;
 import com.cloak.history.dao.BaseHistoryDao;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Service
 @Slf4j
 public class BaseHistoryServiceImpl implements BaseHistoryService {
+
+    @Autowired
+    private RedisBean redisBean;
 
     @Autowired
     private BaseHistoryDao baseHistoryDao;
@@ -25,13 +31,24 @@ public class BaseHistoryServiceImpl implements BaseHistoryService {
      */
     @Override
     public List<BaseStockHistory> findAll(String stockno) {
+        List<BaseStockHistory> ret ;
         StringBuffer tableName = new StringBuffer(Constant.STOCK_HISTORY_PREX);
         tableName.append(stockno);
+
+        Object list = redisBean.getObject(tableName.toString());
+        if(list != null){
+            ret = new Gson().fromJson(list.toString(),new TypeToken<List<BaseStockHistory>>(){}.getType());
+            return ret;
+        }
+
         //当表不存在时返回空的链表
         String isTableName = baseHistoryDao.selectTableName(tableName.toString());
         if(isTableName == null)
             return new ArrayList<>();
-        else
-            return baseHistoryDao.findByTableName(tableName.toString());
+        else{
+            ret = baseHistoryDao.findByTableName(tableName.toString());
+            redisBean.setRedisValue(tableName.toString(),ret,Constant.REDIS_TIMEOUT_MIN, TimeUnit.MINUTES);
+            return ret;
+        }
     }
 }

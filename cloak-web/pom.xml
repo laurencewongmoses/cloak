@@ -44,7 +44,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>
             <version>2.0.2.RELEASE</version>
-        </dependency><dependency><groupId>com.ben</groupId><artifactId>cloak-service</artifactId><version>0.0.1-SNAPSHOT</version></dependency>
+        </dependency>
+        <dependency>
+            <groupId>com.ben</groupId>
+            <artifactId>cloak-service</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
 
         <!-- freemarker -->
         <!--<dependency>-->

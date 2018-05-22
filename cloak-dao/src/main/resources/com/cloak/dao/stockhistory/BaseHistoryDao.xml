@@ -5,9 +5,9 @@
   <select id="findByTableName" statementType="STATEMENT" parameterType="string" resultType="com.cloak.stock.base.BaseStockHistory">
     SELECT * FROM ${tablename}
   </select>
-
+  <!--根据表名查询该表所有的数据 -->
   <select id="selectTableName" resultType="string" parameterType="string">
-    SELECT table_name FROM information_schema.TABLES WHERE table_name = #{tablename};
+    SELECT table_name FROM information_schema.TABLES WHERE TABLE_SCHEMA='stock_history' AND table_name = #{tablename}
   </select>
 </mapper>
 

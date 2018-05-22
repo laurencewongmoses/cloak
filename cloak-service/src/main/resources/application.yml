@@ -22,3 +22,16 @@ spring:
             testOnReturn: true
             poolPreparedStatements: true
             maxOpenPreparedStatements: 20
+    redis:
+            host: localhost
+            port: 6379
+            timeout: 20000
+            poolmaxactive: 8
+            poolminidle: 0
+            poolmaxidle: 8
+            poolmaxwait: 20000
+redis-cluster:
+      hosts: 127.0.0.1:6379
+      maxtotal: 10000
+      maxidle: 100
+      maxwaitmillis: 1000
