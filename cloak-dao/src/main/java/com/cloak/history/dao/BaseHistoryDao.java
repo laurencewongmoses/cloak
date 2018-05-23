@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 /**
- * @PackageName: com.cloak.history.dao
+ * @PackageName: com.cloak.trend.dao
  * @ClassName: BaseHistoryDao
  * @Author: wangpeng
  * @Description: (这里用一句话描述这个类)

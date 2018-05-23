@@ -14,9 +14,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "/view")
 public class ViewController {
 
-    @RequestMapping(value = "/history")
+    @RequestMapping(value = "/technical")
     public String history(){
-        return "/templates/history/history";
+        return "/technical/trend";
     }
+
+    @RequestMapping(value = "/index")
+    public String index(){
+        return "/index";
+    }
+
+    @RequestMapping(value = "/blank")
+    public String blank(){
+        return "/blank";
+    }
+
 
 }
