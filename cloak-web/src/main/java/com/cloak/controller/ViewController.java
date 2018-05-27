@@ -14,10 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "/view")
 public class ViewController {
 
-    @RequestMapping(value = "/technical")
-    public String history(){
-        return "/technical/trend";
-    }
+
 
     @RequestMapping(value = "/index")
     public String index(){
@@ -28,6 +25,5 @@ public class ViewController {
     public String blank(){
         return "/blank";
     }
-
 
 }

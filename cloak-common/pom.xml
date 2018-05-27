@@ -10,6 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>cloak-common</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.ben</groupId>
+            <artifactId>cloak-pojo</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 
 </project>
