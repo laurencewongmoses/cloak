@@ -26,4 +26,9 @@ public class ViewController {
         return "/blank";
     }
 
+    @RequestMapping(value = "/tableau")
+    public String tableau(){
+        return "/technical/tableau";
+    }
+
 }

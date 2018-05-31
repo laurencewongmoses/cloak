@@ -18,6 +18,12 @@ public class TechnicalController {
     public String history(){
         return "/technical/trend";
     }
+
+    @RequestMapping(value = "/to100")
+    public String to100(){
+        return "/technical/to100";
+    }
+
     //复权数据
     //实时行情
     //历史分笔

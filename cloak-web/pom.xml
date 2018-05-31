@@ -56,6 +56,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-freemarker</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.ben</groupId>
+            <artifactId>cloak-math</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
 
         <!--spring security-->
         <!--<dependency>-->

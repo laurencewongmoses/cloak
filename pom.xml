@@ -13,6 +13,7 @@
 		<module>cloak-service</module>
 		<module>cloak-dao</module>
 		<module>cloak-web</module>
+		<module>cloak-math</module>
 	</modules>
 
 	<name>cloak</name>

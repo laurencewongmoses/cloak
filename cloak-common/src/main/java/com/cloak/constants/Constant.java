@@ -9,7 +9,8 @@ public interface Constant {
     String STOCK_PROFIT_PREX = "stock_profit_";
     String STOCK_REPORT_PREX = "stock_report_";
     String STOCK_LIST_TABLE = "stock_list";
-    String DOUBLE = "double";
+    String DOUBLE = "java.lang.Double";
     int REDIS_TIMEOUT_MIN = 120;
-
+    int TO100ROUND_SCALE = 4;
+    int TO100 = 100;
 }
