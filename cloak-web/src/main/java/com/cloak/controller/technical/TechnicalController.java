@@ -24,6 +24,11 @@ public class TechnicalController {
         return "/technical/to100";
     }
 
+    @RequestMapping(value = "/ceiling")
+    public String ceiling(){
+        return "/technical/ceiling";
+    }
+
     //复权数据
     //实时行情
     //历史分笔

@@ -3,7 +3,9 @@ package com.cloak.controller.technical;
 import com.alibaba.fastjson.JSONObject;
 import com.cloak.convert.ValTo100;
 import com.cloak.enums.AIndex;
+import com.cloak.fundmental.StockInfo;
 import com.cloak.math.JSONObjectMath;
+import com.cloak.serivce.stock.fundmental.StockInfoService;
 import com.cloak.serivce.stock.technical.BaseHistoryService;
 import com.cloak.technical.base.BaseStockHistory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,9 @@ public class TechnicalApiController {
     @Autowired
     BaseHistoryService baseHistoryService;
 
+    @Autowired
+    StockInfoService stockInfoService;
+
     /**
      * 根据代码查询历史日交易数据
      * @param stockNo
@@ -37,6 +42,16 @@ public class TechnicalApiController {
     @ResponseBody
     public List<BaseStockHistory> lists(@PathVariable(value = "stockno") String stockNo){
         return baseHistoryService.findAll(stockNo);
+    }
+
+    /**
+     * 查询所有的股票
+     * @return
+     */
+    @RequestMapping(value = "/stocklist")
+    @ResponseBody
+    public List<StockInfo> stockInfos(){
+        return stockInfoService.findAll();
     }
 
 

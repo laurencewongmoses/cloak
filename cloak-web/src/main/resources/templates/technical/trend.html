@@ -23,13 +23,19 @@
     <section id="main-content">
         <section class="wrapper">
             <!-- 页面开始-->
-            Page content goes here
+
             <!-- 页面结束-->
             <div class="row">
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
                             K线走势
+                            <h5 class="box-title">
+                                <label class="help_img">
+
+                                </label>
+                            </h5>
+
                         </header>
                         <div class="panel-body">
                             <div id="candelstic" class="graph" style="height: 800px"></div>
@@ -697,31 +703,6 @@
             ]
         }, true);
 
-        // myChart.on('brushSelected', renderBrushed);
-
-        // function renderBrushed(params) {
-        //     var sum = 0;
-        //     var min = Infinity;
-        //     var max = -Infinity;
-        //     var countBySeries = [];
-        //     var brushComponent = params.brushComponents[0];
-        //
-        //     var rawIndices = brushComponent.series[0].rawIndices;
-        //     for (var i = 0; i < rawIndices.length; i++) {
-        //         var val = data.values[rawIndices[i]][1];
-        //         sum += val;
-        //         min = Math.min(val, min);
-        //         max = Math.max(val, max);
-        //     }
-        //
-        //     panel.innerHTML = [
-        //         '<h3>STATISTICS:</h3>',
-        //         'SUM of open: ' + (sum / rawIndices.length).toFixed(4) + '<br>',
-        //         'MIN of open: ' + min.toFixed(4) + '<br>',
-        //         'MAX of open: ' + max.toFixed(4) + '<br>'
-        //     ].join(' ');
-        // }
-
         myChart.dispatchAction({
             type: 'brush',
             areas: [
@@ -734,69 +715,7 @@
         });
     }
 
-    setCandel(data);
-
-
-
+    // setCandel(data);
 </script>
-<!--<script type="text/javascript">-->
-    <!--var to100 = document.getElementById("to100");-->
-    <!--var to100Chart = echarts.init(to100,"light");-->
-    <!--option = {-->
-        <!--xAxis: {-->
-            <!--type: 'category',-->
-            <!--data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']-->
-        <!--},-->
-        <!--yAxis: {-->
-            <!--type: 'value'-->
-        <!--},-->
-        <!--series: [{-->
-            <!--data: [820, 932, 901, 934, 1290, 1330, 1320],-->
-            <!--type: 'line',-->
-            <!--smooth: true-->
-        <!--}]-->
-    <!--};-->
-    <!--to100Chart.setOption(option);-->
-
-    <!--$.ajax({-->
-        <!--url : '${request.contextPath}/techApi/to100/002129/volume',-->
-        <!--type : "GET",-->
-        <!--data : {-->
-
-        <!--},-->
-        <!--success:function(data) {-->
-            <!--var xdata = new Array();-->
-            <!--var seriesV = new Array();-->
-            <!--if(data != null){-->
-                <!--for(var i = 0;i< data.length ; i++){-->
-                    <!--for(key in data[i]){-->
-                        <!--xdata[i] = key;-->
-                        <!--var n = Number(data[i][key]);-->
-                        <!--seriesV[i] = parseFloat(n.toFixed(4));-->
-                    <!--}-->
-                <!--}-->
-            <!--}-->
-            <!--console.log(xdata);-->
-            <!--console.log(seriesV);-->
-            <!--to100Chart.setOption({-->
-                <!--xAxis:[{-->
-                    <!--type: 'category',-->
-                    <!--data: xdata-->
-                <!--}],-->
-                <!--series:[-->
-                    <!--{-->
-                        <!--data: seriesV,-->
-                        <!--type: 'line',-->
-                        <!--smooth: true-->
-                    <!--}-->
-                <!--]-->
-            <!--})-->
-
-        <!--},-->
-        <!--error:function(data) {-->
-        <!--}-->
-    <!--})-->
-
-<!--</script>-->
 </body>
 </html>

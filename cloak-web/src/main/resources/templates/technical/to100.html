@@ -11,9 +11,7 @@
     <!--引入公共样式-->
     <#include "/common/linked.html">
 </head>
-
 <body>
-
 <section id="container" class="">
     <!--引入公共头-->
     <#include "/common/header.html">
@@ -41,8 +39,6 @@
                         </header>
                         <div class=" col-lg-2" >
                             <input type="text" class="form-control" placeholder="" id="stock">
-                            <!--<span class="input-group-btn">-->
-                                            <!----><!--</span>-->
                         </div>
                         <button class="btn btn-white" id="btn_go" type="button">Go!</button>
 
@@ -52,6 +48,7 @@
                     </section>
                 </div>
             </div>
+            <input type="hidden" id="stocklist" value="" />
         </section>
     </section>
     <!--网站主类容结束-->
@@ -63,20 +60,7 @@
 </script>
 
 <script type="text/javascript">
-    /**
-     * 使用jquery的inArray方法判断元素是否存在于数组中
-     * @param {Object} arr 数组
-     * @param {Object} value 元素值
-     */
-    function isInArray(arr,value){
-        var index = $.inArray(value,arr);
-        if(index >= 0){
-            return true;
-        }
-        return false;
-    }
-
-
+    <!--百比图-->
     var to100 = document.getElementById("to100");
     var to100Chart = echarts.init(to100,"light");
     option = {
@@ -105,6 +89,12 @@
         yAxis: {
             type: 'value'
         },
+        dataZoom : {
+            show : true,
+            realtime : true,
+            start : 75,
+            end : 100
+        },
         series: [
             // {
             //     name:'联盟广告',
@@ -127,7 +117,7 @@
             },
             success:function(data) {
                 to100Chart.hideLoading();
-                console.log(data);
+                // console.log(data);
 
                 var legendData = new Array();
                 var dateData = new Array();
@@ -156,21 +146,15 @@
                         }
                     }
 
-
                     for(var j = 0; j<data.length ; j++){
                         var seriedata = new Array();
                         var datastock = data[j].data;
                         if(datastock != null){
                             var otherdate = new Array();
                             for(var k = 0 ; k < data[j].data.length;k++){
-                                // console.log(data[j].data[k])
                                 for( key in data[j].data[k]){
                                     otherdate[k] = key;
                                 }
-                            }
-
-                            for(var d = 0; d < dateData.length ; d ++){
-
                             }
 
                             for(var l = 0;l < data[j].data.length ; l++){
@@ -181,15 +165,9 @@
                             }
                         }
                         var ser = new serie(data[j].name,seriedata);
-                        // console.log(ser);
-                        // var jsonObject = JSON.valueOf(ser);
                         series[j] = ser;
                     }
                 }
-
-                // console.log(legendData);
-                // console.log(dateData);
-                console.log(series);
 
                 to100Chart.setOption({
                     legend:{
@@ -200,14 +178,6 @@
                         data: dateData
                     }],
                     series: series
-                    //     [
-                    //     {
-                    //         name: '002129',
-                    //         data: seriesV,
-                    //         type: 'line',
-                    //         smooth: true
-                    //     }
-                    // ]
                 })
 
             },
@@ -215,11 +185,17 @@
             }
         })
     }
-    setto100('002129')
+    setto100('002129');
     //按钮点击事件
     $("#btn_go").click(function(){
         setto100($("#stock").val())
     });
 </script>
+
+<script>
+
+
+</script>
+
 </body>
 </html>
